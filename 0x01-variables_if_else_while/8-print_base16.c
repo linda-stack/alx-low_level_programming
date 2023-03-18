@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - Prints all numbers of base 16 in lowercase
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
     int i;
@@ -15,4 +20,5 @@ int main(void)
 
     return (0);
 }
+
 
