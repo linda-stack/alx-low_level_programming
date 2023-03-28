@@ -12,6 +12,7 @@ void print_array(int *a, int n)
 int i;
 int num;
 int temp;
+int div;
 
 for (i = 0; i < n; i++)
 {
@@ -22,12 +23,13 @@ num = -num;
 putchar('-');
 }
 temp = num;
+div = 1;
 while (temp /= 10)
-num *= 10;
-while (num >= 1)
+div *= 10;
+while (div >= 1)
 {
-putchar((temp / num % 10) + '0');
-num /= 10;
+putchar((num / div % 10) + '0');
+div /= 10;
 }
 if (i != n - 1)
 {
@@ -37,3 +39,4 @@ putchar(' ');
 }
 putchar('\n');
 }
+
