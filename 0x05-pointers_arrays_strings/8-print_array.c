@@ -10,12 +10,30 @@
 void print_array(int *a, int n)
 {
 int i;
+int num;
+int temp;
 
 for (i = 0; i < n; i++)
 {
-putchar("%d", a[i]);
-if (i != n - 1)
-putchar(", ");
+num = a[i];
+if (num < 0)
+{
+num = -num;
+putchar('-');
 }
-putchar("\n");
+temp = num;
+while (temp /= 10)
+num *= 10;
+while (num >= 1)
+{
+putchar((temp / num % 10) + '0');
+num /= 10;
+}
+if (i != n - 1)
+{
+putchar(',');
+putchar(' ');
+}
+}
+putchar('\n');
 }
