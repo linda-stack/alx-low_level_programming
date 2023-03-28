@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strcpy - copies the string pointed to by 
+ * _strcpy - copies the string pointed to by
  *src to the buffer pointed to by dest
  * @dest: the buffer to copy the string to
  * @src: the string to copy
@@ -20,5 +20,6 @@ dest[i] = '\0';
 
 return (dest);
 }
+
 
 
