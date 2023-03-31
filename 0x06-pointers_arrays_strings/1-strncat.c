@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * _strncat - concatenates two strings using at most n bytes from src
