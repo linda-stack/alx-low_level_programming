@@ -7,18 +7,12 @@
  */
 int word_count(char *str)
 {
-int i, wc = 0, in_word = 0;
-for (i = 0; str[i]; i++)
-{
-if (str[i] != ' ')
-{
-if (!in_word)
-wc++;
-in_word = 1;
-}
+int wc = 0, in_word = 0;
+while (*str)
+if (*str++ != ' ')
+wc += !in_word, in_word = 1;
 else
 in_word = 0;
-}
 return (wc);
 }
 /**
@@ -30,9 +24,8 @@ return (wc);
  */
 void free_words(char **words, int k)
 {
-int j;
-for (j = 0; j < k; j++)
-free(words[j]);
+while (k--)
+free(words[k]);
 free(words);
 }
 /**
@@ -43,45 +36,43 @@ free(words);
  */
 char **strtow(char *str)
 {
-char **words;
-int i, j, k = 0, wc, len = 0, in_word = 0;
-if (str == NULL || str[0] == '\0')
+if (!str || !*str)
 return (NULL);
-wc = word_count(str);
-if (wc == 0)
+int wc = word_count(str);
+if (!wc)
 return (NULL);
-words = malloc((wc + 1) * sizeof(char *));
-if (words == NULL)
+char **words = malloc((wc + 1) * sizeof(*words));
+if (!words)
 return (NULL);
-for (i = 0; str[i]; i++)
-{
-if (str[i] != ' ')
-{
+for (int k = 0, len = 0, in_word = 0; *str; ++str)
+if (*str != ' ')
 if (!in_word)
+len = 1, in_word = 1;
+else
+++len;
+else if (in_word)
 {
-for (j = i; str[j] && str[j] != ' '; j++)
-len++;
-words[k] = malloc((len + 1) * sizeof(char));
-if (words[k] == NULL)
+words[k] = malloc((len + 1) * sizeof(**words));
+if (!words[k])
 {
 free_words(words, k);
 return (NULL);
 }
-len = 0;
-}
-in_word = 1;
-words[k][len++] = str[i];
-}
-else
-{
-if (in_word)
+memcpy(words[k], str - len, len);
 words[k++][len] = '\0';
 in_word = 0;
-len = 0;
-}
 }
 if (in_word)
-words[k++][len] = '\0';
-words[k] = NULL;
+{
+words[wc] = malloc((len + 1) * sizeof(**words));
+if (!words[wc])
+{
+free_words(words, wc);
+return (NULL);
+}
+memcpy(words[wc], str - len, len);
+words[wc++][len] = '\0';
+}
+words[wc] = NULL;
 return (words);
 }
