@@ -38,7 +38,7 @@ wc = word_count(str);
 if (wc == 0)
 return (NULL);
 words = malloc((wc + 1) * sizeof(char *));
-if (words == NULL)
+if (words == NULL;
 return (NULL);
 for (i = 0; str[i]; i++)
 {
@@ -51,9 +51,7 @@ len++;
 words[k] = malloc((len + 1) * sizeof(char));
 if (words[k] == NULL)
 {
-for (j = 0; j < k; j++)
-free(words[j]);
-free(words);
+free_words(words, k);
 return (NULL);
 }
 len = 0;
@@ -74,3 +72,4 @@ words[k++][len] = '\0';
 words[k] = NULL;
 return (words);
 }
+  
