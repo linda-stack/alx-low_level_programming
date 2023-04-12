@@ -60,17 +60,12 @@ len = 0;
 }
 in_word = 1;
 words[k][len++] = str[i];
-}
-else
-{
-if (in_word)
+}else
+{if (in_word)
 words[k++][len] = '\0';
 in_word = 0;
-len = 0;
-}
-}
+len = 0;}}
 if (in_word)
-words[k++][len] = '\0';
-words[k] = NULL;
+words[k++][len] = '\0';words[k] = NULL;
 return (words);
 }
