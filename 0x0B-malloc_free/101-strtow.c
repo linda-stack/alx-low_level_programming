@@ -72,4 +72,3 @@ words[k++][len] = '\0';
 words[k] = NULL;
 return (words);
 }
-  
