@@ -14,6 +14,7 @@ unsigned int i, len;
 if (str == NULL)
 return (NULL);
 for (len = 0; str[len]; len++)
+;
 dup = malloc((len + 1) * sizeof(char));
 if (dup == NULL)
 return (NULL);
