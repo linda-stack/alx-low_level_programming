@@ -13,15 +13,3 @@ if (p == NULL)
 exit(98);
 return (p);
 }
-/**
- * main - entry point
- *
- * Return: always 0
- */
-int main(void)
-{
-char *c;
-c = malloc_checked(sizeof(char) * 1024);
-printf("%p\n", (void *)c);
-return (0);
-}
