@@ -1,35 +1,19 @@
 #include "main.h"
 /**
- * _isdigit - checks if a character is a digit
- * @c: character to check
- *
- * Return: 1 if c is a digit, 0 otherwise
- */
-int _isdigit(int c)
-{
-return (c >= '0' && c <= '9');
-}
-
-/**
- * _strlen - returns the length of a string
+ * is_number - checks if a string is a number
  * @s: string to check
  *
- * Return: length of s
+ * Return: 1 if s is a number, 0 otherwise
  */
-int _strlen(char *s)
+int is_number(char *s)
 {
-int i = 0;
-while (*s++)
-i++;
-return (i);
+int i;
+for (i = 0; s[i]; i++)
+{
+if (s[i] < '0' || s[i] > '9')
+return (0);
 }
-/**
- * errors - handles errors for main
- */
-void errors(void)
-{
-printf("Error\n");
-exit(98);
+return (1);
 }
 /**
  * main - multiplies two positive numbers
@@ -41,8 +25,11 @@ exit(98);
 int main(int argc, char *argv[])
 {
 int num1, num2, result;
-if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-errors();
+if (argc != 3 || !is_number(argv[1]) || !is_number(argv[2]))
+{
+printf("Error\n");
+exit(98);
+}
 num1 = atoi(argv[1]);
 num2 = atoi(argv[2]);
 result = num1 * num2;
