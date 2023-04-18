@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 #include "dog.h"
 /**
  * init_dog - initialize a variable
