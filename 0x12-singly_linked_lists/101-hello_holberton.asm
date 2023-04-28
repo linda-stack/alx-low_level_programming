@@ -10,6 +10,6 @@ main:
     mov rdi, hello
     xor eax, eax
     call printf
-    xor eax, eax		; set return value to 0 (success)
+    xor eax, eax ; set return value to 0 (success)
     pop rbp
     ret
