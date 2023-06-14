@@ -1,4 +1,3 @@
-#!/bin/bash
 #include "main.h"
 /**
  * _puts - writes a string to the standard output
