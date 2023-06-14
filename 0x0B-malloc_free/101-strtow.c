@@ -1,10 +1,9 @@
 #include "main.h"
-#include <ctype.h>
 /**
- * word_count - counts the number of words in a string
- * @str: the string to count
+ * word_count - Counts the number of words in a string
+ * @str: The string to count
  *
- * Return: the number of words in the string
+ * Return: The number of words in the string
  */
 int word_count(char *str)
 {
@@ -12,7 +11,7 @@ int word_count(char *str)
 
     for (i = 0; str[i]; i++)
     {
-        if (isspace(str[i]) || ispunct(str[i]))
+        if (str[i] == ' ')
             in_word = 0;
         else if (in_word == 0)
         {
@@ -20,14 +19,14 @@ int word_count(char *str)
             in_word = 1;
         }
     }
-    return (wc);
+    return wc;
 }
 
 /**
- * strtow - splits a string into words
- * @str: the string to split
+ * strtow - Splits a string into words
+ * @str: The string to split
  *
- * Return: pointer to an array of strings
+ * Return: Pointer to an array of strings (words)
  */
 char **strtow(char *str)
 {
@@ -35,36 +34,13 @@ char **strtow(char *str)
     char **words;
 
     if (str == NULL || str[0] == '\0' || wc == 0)
-        return (NULL);
+        return NULL;
 
     words = malloc((wc + 1) * sizeof(char *));
     if (words == NULL)
-        return (NULL);
+        return NULL;
 
-    for (i = 0, j = 0; str[i]; i++)
-    {
-        if (isspace(str[i]) || ispunct(str[i]))
-            in_word = 0;
-        else if (in_word == 0)
-        {
-            for (k = i; str[k] && !isspace(str[k]) && !ispunct(str[k]); k++)
-                ;
-            k -= i;
-            words[j] = malloc((k + 1) * sizeof(char));
-            if (words[j] == NULL)
-            {
-                while (--j >= 0)
-                    free(words[j]);
-                free(words);
-                return (NULL);
-            }
-            for (k = 0; str[i] && !isspace(str[i]) && !ispunct(str[i]); i++, k++)
-                words[j][k] = str[i];
-            words[j++][k] = '\0';
-            in_word = 1;
-        }
-    }
     words[j] = NULL;
 
-    return (words);
+    return words;
 }
