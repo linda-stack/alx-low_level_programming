@@ -13,7 +13,7 @@ if (ptr == NULL)
 {
 char *str = "Error: malloc failed\n";
 char *c;
-for ( c = str; *c != '\0'; c++)
+for (c = str; *c != '\0'; c++)
 {
 putchar(*c);
 }
