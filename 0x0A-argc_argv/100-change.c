@@ -1,5 +1,12 @@
 #include "main.h"
 #include <stdlib.h>
+/**
+ * main - Entry point of the program
+ * @argc: The number of command line arguments
+ * @argv: An array of strings representing the arguments
+ *
+ * Return: 0 if successful, 1 if there is an error
+ */
 int main(int argc, char *argv[])
 {
 int cents, coins = 0;
