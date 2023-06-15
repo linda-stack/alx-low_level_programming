@@ -4,9 +4,11 @@
 /**
  * main - multiplies two numbers
  * @argc: the number of command line arguments
- * @argv: an array of pointers to the command line arguments
+ * @argv: an array of pointers
+ *to the command line arguments
  *
- * Return: 0 if successful, 1 if the program does not receive two arguments
+ * Return: 0 if successful, 1 if the program
+ *does not receive two arguments
  */
 int main(int argc, char *argv[])
 {
