@@ -4,10 +4,11 @@
  * @age: the age of the dog
  * @owner: the owner of the dog
  *
- * This structure defines a dog with its name, age, and owner.
+ * This structure defines a dog with
+ *its name, age, and owner.
  */
 struct dog {
-    char *name;
-    float age;
-    char *owner;
+char *name;
+float age;
+char *owner;
 };
