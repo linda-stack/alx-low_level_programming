@@ -11,6 +11,5 @@
  * On error, returns -1 and sets errno appropriately.
  */
 int _putchar(char c);
-int main(int argc, char **argv[]);
 int main(int argc, char *argv[]);
 #endif /* MAIN_H */
