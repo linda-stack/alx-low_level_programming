@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <ctype.h>
+
 /**
 * is_number - checks if a string contains only digits
 * @str: string to check
@@ -79,11 +80,18 @@ char *result;
 
 if (argc != 3 || !is_number(argv[1]) || !is_number(argv[2]))
 {
-printf("Error\n");
+_putchar('E');
+_putchar('r');
+_putchar('r');
+_putchar('o');
+_putchar('r');
+_putchar('\n');
 exit(98);
 }
 result = multiply(argv[1], argv[2]);
-printf("%s\n", result);
+while (*result)
+_putchar(*result++);
+_putchar('\n');
 free(result);
 return (0);
 }
