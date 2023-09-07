@@ -7,10 +7,10 @@
 */
 void *malloc_checked(unsigned int b)
 {
-void *ptr = malloc(b);
+void *ptr = (malloc(b));
 if (ptr == NULL)
 {
-char *str = "Error: malloc failed\n";
+char *str = ("Error: malloc failed\n");
 char *c;
 for (c = str; *c != '\0'; c++)
 {
