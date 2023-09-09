@@ -62,7 +62,7 @@ result[i] += carry;
 }
 for (i = 0; i < len; i++)
 result[i] += '0';
-while (*result == '0')
+while (*result == '0' && *(result + 1) != '\0')
 result++;
 return (start);
 }
