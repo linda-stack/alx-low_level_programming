@@ -46,6 +46,7 @@ char *multiply(char *num1, char *num2)
 int len1 = _strlen(num1), len2 = _strlen(num2);
 int len = len1 + len2;
 char *result = calloc(len + 1, sizeof(char));
+char *start = result;
 int i, j, carry;
 
 for (i = len1 - 1; i >= 0; i--)
@@ -63,7 +64,7 @@ for (i = 0; i < len; i++)
 result[i] += '0';
 while (*result == '0')
 result++;
-return (result);
+return (start);
 }
 
 /**
@@ -80,18 +81,11 @@ char *result;
 
 if (argc != 3 || !is_number(argv[1]) || !is_number(argv[2]))
 {
-_putchar('E');
-_putchar('r');
-_putchar('r');
-_putchar('o');
-_putchar('r');
-_putchar('\n');
+printf("Error\n");
 exit(98);
 }
 result = multiply(argv[1], argv[2]);
-while (*result)
-_putchar(*result++);
-_putchar('\n');
+printf("%s\n", result);
 free(result);
 return (0);
 }
