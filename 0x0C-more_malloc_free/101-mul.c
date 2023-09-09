@@ -47,6 +47,7 @@ int len1 = _strlen(num1), len2 = _strlen(num2);
 int len = len1 + len2;
 char *result = calloc(len + 1, sizeof(char));
 char *start = result;
+char *print;
 int i, j, carry;
 
 for (i = len1 - 1; i >= 0; i--)
@@ -62,9 +63,10 @@ result[i] += carry;
 }
 for (i = 0; i < len; i++)
 result[i] += '0';
-while (*result == '0' && *(result + 1) != '\0')
-result++;
-return (start);
+print = result;
+while (*print == '0' && *(print + 1) != '\0')
+print++;
+return print;
 }
 
 /**
