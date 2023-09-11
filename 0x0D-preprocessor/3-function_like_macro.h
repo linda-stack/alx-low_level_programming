@@ -11,5 +11,5 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ABS(x) ((x) < 0 ? -(x) : (x))
+#define ABS(X) ((X) > 1 ? (X) : (-1) * (X))
 #endif
