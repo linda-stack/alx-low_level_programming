@@ -22,8 +22,7 @@ _putchar('-');
 n = -n;
 }
 copy = n;
-do
-{
+do {
 copy /= 10;
 if (copy)
 _putchar(copy + '0');
