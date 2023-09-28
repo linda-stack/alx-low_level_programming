@@ -11,7 +11,7 @@ size_t print_listint(const listint_t *h)
 {
 const listint_t *current;
 size_t count = 0;
-int n, copy;
+int n, copy, num_digits, divisor, digit;
 current = h;
 while (current != NULL)
 {
@@ -22,14 +22,23 @@ _putchar('-');
 n = -n;
 }
 copy = n;
+num_digits = 0;
 do {
+num_digits++;
 copy /= 10;
-if (copy)
-_putchar(copy + '0');
 } while (copy);
-_putchar(n % 10 + '0');
+divisor = 1;
+for (int i = 1; i < num_digits; i++)
+divisor *= 10;
+while (divisor)
+{
+digit = n / divisor;
+_putchar(digit + '0');
+n -= digit * divisor;
+divisor /= 10;
+}
 _putchar('\n');
-current = current->next;
+current = current->next; 
 count++;
 }
 return (count);
