@@ -108,6 +108,4 @@ listint_t *find_listint_loop(listint_t *head);
  * @c: character
 */
 extern int _putchar(char c);
-
 #endif
-
