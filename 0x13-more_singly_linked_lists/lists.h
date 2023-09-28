@@ -22,7 +22,7 @@ struct listint_s *next;
 size_t print_listint(const listint_t *h);
 /**
  * Returns the number of elements in a linked listint_t list
- * @head: pointer to the head of the list
+ * @h: pointer to the head of the list
  *
  * Return: Address of the new element, or NULL if it failed
 */
@@ -73,8 +73,8 @@ int sum_listint(listint_t *head);
 /**
  * Inserts a new node at a given position
  * @head: Double pointer to the head of the list
- * @n: The integer to be included in the new node
- *@idx: index integer
+ * @idx: The integer to be included in the new node
+ * @n: index integer
 */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 /**
