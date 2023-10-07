@@ -72,14 +72,12 @@ print_string("  Version:                           ");
 putchar('0' + ehdr.e_ident[EI_VERSION]);
 print_string(" (current)\n");
 print_string("  OS/ABI:                            ");
-print_string(ehdr.e_ident[EI_OSABI] == ELFOSABI_SYSV ?
-"UNIX - System V\n" : "UNIX - Linux\n");
+print_string(ehdr.e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V\n" : "UNIX - Linux\n");
 print_string("  ABI Version:                       ");
 putchar('0' + ehdr.e_ident[EI_ABIVERSION]);
 putchar('\n');
 print_string("  Type:                              ");
-print_string(ehdr.e_type == ET_EXEC ? "EXEC (Executable file)\n"
-: "DYN (Shared object file)\n");
+print_string(ehdr.e_type == ET_EXEC ? "EXEC (Executable file)\n": "DYN (Shared object file)\n");
 print_string("  Entry point address:               ");
 printf("0x%lx\n", ehdr.e_entry);
 close(fd);
