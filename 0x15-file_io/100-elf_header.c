@@ -5,19 +5,41 @@
 #include<unistd.h>
 #include<elf.h>
 #define BUFFER_SIZE 1024
+/**
+ * error - Prints an error message and exits the program.
+ * @msg: The error message to print.
+ * @file: The file name to print in the error message.
+ * @exit_code: The exit code to use when exiting the program.
+ */
 void error(char *msg, char *file, int exit_code) {
 dprintf(STDERR_FILENO, "%s %s\n", msg, file);
 exit(exit_code);
 }
+/**
+ * print_string - Prints a string.
+ * @str: The string to print.
+ */
 void print_string(char *str) {
 while (*str)
 putchar(*str++);
 }
+/**
+ * print_hex - Prints a byte as a two-digit hexadecimal number.
+ * @c: The byte to print.
+ */
 void print_hex(unsigned char c) {
 char *hex = "0123456789abcdef";
 putchar(hex[c >> 4]);
 putchar(hex[c & 0xf]);
 }
+/**
+ * main - Displays the information contained in
+ *the ELF header at the start of an ELF file.
+ * @argc: The number of command line arguments.
+ * @argv: The command line arguments.
+ *
+ * Return: 0 if successful, or 98 if an error occurs.
+ */
 int main(int argc, char *argv[]) {
 int fd;
 ssize_t bytes;
